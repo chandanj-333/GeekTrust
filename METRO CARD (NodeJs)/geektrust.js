@@ -18,15 +18,14 @@ const prices = {
     "ADULT" : 200,
     "SENIOR_CITIZEN" : 100,
     "KID" : 50,
-    "walletTopUpInterest" : 0.02, //Interest charged on adding money to wallet (2%)
-    "discount" : 0.5              //Discount on returning to the Origin statin (50%)
+    "walletTopUpInterest" : 0.02,  //Interest charged on adding money to wallet (2%)
+    "discount" : 0.5               //Discount on returning to the Origin statin (50%)
 }
 
 function checkCardBalance(card,source,requiredAmount){
     /**
      * @param   {string:cardNumber, string:currentStation of journey, integer:required amount to pay} 
-     * @returns {if the balance in card is low than requiredAmount for travel, adds the money to wallet 
-     *            with 2% interest}
+     * @returns {if the balance in card is low than requiredAmount for travel, adds the money to wallet with 2% interest}
      */
     if(cards[card]<requiredAmount) {
         const interest=(requiredAmount-cards[card])*prices.walletTopUpInterest
@@ -37,8 +36,7 @@ function checkCardBalance(card,source,requiredAmount){
 
 function checkIn(card,passengerType,source) {
     /**
-     * @param   {string:cardNumber, string:passengerType(ADULT/KID/SENIOR_CITIZEN), 
-     *            string:currentStation of travel} 
+     * @param   {string:cardNumber, string:passengerType(ADULT/KID/SENIOR_CITIZEN), string:currentStation of travel} 
      * @returns {Checkin the passenger}
      */
     if(Object.keys(cards).includes(card)) {  //Continue with the execution if card exists
